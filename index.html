@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+    let playerChoice;
+    let playerSelection;
+    let computerSelection;
+    let value;
+    let str;
+    let roundCount = 0;
+
+
+    function playRound(playerSelection, computerSelection) {
+      playerChoice = prompt("Please enter Rock, Paper, or Scissors");
+      playerSelection = (playerChoice) ? playerChoice.toLowerCase() : playerChoice;
+      console.log("You picked " + playerSelection);
+      console.log("The bot picked " + computerSelection);
+
+      if(!playerChoice)
+        return "Please enter rock, paper, or scissors"
+
+      else if (playerSelection === "rock" && computerSelection === "scissors")
+        return "You Win! Rock beats scissors!\n";
+
+      else if (playerSelection === "rock" && computerSelection === "paper")
+        return "You Lose! Paper beats rock!\n";
+
+      else if (playerSelection === "rock" && computerSelection === "rock")
+        return "Draw! Rock can not beat rock!\n";
+    
+      else if (playerSelection === "paper" && computerSelection === "scissors")
+        return "You Lose! Scissors beats paper!\n";
+
+      else if (playerSelection === "paper" && computerSelection === "rock")
+        return "You Win! Paper beats rock!\n";
+
+      else if (playerSelection === "paper" && computerSelection === "paper")
+        return "Draw! Paper can not beat paper!\n";
+
+      else if (playerSelection === "scissors" && computerSelection === "rock")
+        return "You lose! Rock beats scissors!\n";
+      
+      else if (playerSelection === "scissors" && computerSelection === "paper")
+        return "You win! Scissors beats paper!\n";
+      
+      else if (playerSelection === "scissors" && computerSelection === "scissors")
+        return "Draw! Scissors can not beat scissors!\n";
+      
+    }
+
+    function computerPlay() {
+        value = Math.floor(Math.random()*3); 
+        if (value == 0) {
+          return "rock"
+        }
+        if (value == 1) {
+          return "paper"
+        }
+        if (value == 2) {
+          return "scissors"
+        }
+    }
+  
+    function game() {
+      for (let i = 0; i < 5; i++) {
+        let computerSelectionLoop = computerPlay();
+        console.log("This is round " + roundCount);
+        console.log(playRound(str, computerSelectionLoop));
+        roundCount++;
+
+      }
+    }
+
+  </script>
+</body>
+</html> 
